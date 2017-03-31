@@ -3,7 +3,7 @@ $(function(){
 	$('#directions-wrapper').perfectScrollbar();
 	$('.floating-container').perfectScrollbar();
 
-	
+
 	$(".block-wrapper").bind("mousewheel",function(ev, delta) {
     	var scrollTop = $(this).scrollTop();
     	$(this).scrollTop(scrollTop-Math.round(delta*30));
@@ -18,20 +18,20 @@ $(function(){
 		return false;
     });
     $('#search-btn').bind('click',function(){
-		$("#search_directions").submit(); 
+		$("#search_directions").submit();
 		return false;
     });
     //close the directions box
     $('#directions-panel .close').bind('click',function(){
     	$('#directions-panel').fadeOut('slow');
-    }); 
+    });
 
 
     //this toggles the inline content boxes
     $('.floating-box').bind('click',function(){
     	$('.floating-search').fadeOut('slow');
     	$('.floating-wrapper').queue("fx");
-    	
+
 
 		var el = $(this);
     	if($('.floating-wrapper').position().top > 0) {
@@ -42,7 +42,7 @@ $(function(){
 	    			// Animation complete.
 	    			$('.floating-wrapper h3').html( el.find('h3').text() );
 					$('.floating-wrapper p:eq(0)').html( el.data('title') );
-					
+
 					$('.floating-content').html($('#section-' + el.data('section') + ' .section-content').html());
 	    		}
 
@@ -53,7 +53,7 @@ $(function(){
 
 			$('.floating-content').html($('#section-' + el.data('section') + ' .section-content').html());
 		}
-		
+
 		$('.floating-wrapper').show().animate(
 			{ top: 30 },
 			600
@@ -62,7 +62,7 @@ $(function(){
 
 
 		return false;
-    });     
+    });
     //close the wrapper
     $('.floating-wrapper .close').bind('click',function(){
     	if($('.floating-wrapper').is(":visible")) {
@@ -70,7 +70,7 @@ $(function(){
 			$('.floating-search').fadeIn('slow');
 		}
 		return false;
-    }); 
+    });
 
     //if the map is clicked then make sure the floating-wrapper is hidden
     $('#map_canvas').bind('click',function(){
@@ -95,13 +95,13 @@ var directionsService = new google.maps.DirectionsService();
 function initialize_map() {
 	if($('#map_canvas').length == 0)
 		return false;
-	
+
 	var lat_lng = $('meta[name="geo.position"]').attr("content").split(";");
 	var lat = parseFloat(lat_lng[0].replace(/ /g,''));
 	var lng = parseFloat(lat_lng[1].replace(/ /g,''));
 
 	var point = new google.maps.LatLng(lat, lng);
-	
+
 	var settings = {
 		zoom: 12,
 		center: point,
@@ -115,7 +115,7 @@ function initialize_map() {
 		navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	
+
 	$('#map_canvas').height($(window).height());
 	map = new google.maps.Map(document.getElementById("map_canvas"), settings);
 
@@ -143,7 +143,7 @@ function initialize_map() {
 		new google.maps.Point(0,0),
 		new google.maps.Point(21,62)
 	);
-		
+
 	var marker = new google.maps.Marker({
 		draggable: false,
 		raiseOnDrag: false,
@@ -151,13 +151,13 @@ function initialize_map() {
 		map: map,
 		position: point
 	});
-		
+
 
 	var link = "link";
 	var infowindow = new google.maps.InfoWindow();
 	google.maps.event.addListener( marker, 'click', function() {
 		// Setting the content of the InfoWindow
-		var content = '<div id="info" class="span6" style="height: 85px;"><strong>We are here</strong><p style="margin:0; padding:0">34 Botley Road,MIDDLETON,<br />EH23 3UZ</a></p>' + '</div>';
+		var content = '<div id="info" class="span6" style="height: 85px;"><strong>We are here</strong><p style="margin:0; padding:0"> 1101 S Las Vegas Blvd,<br />Las Vegas</a></p>' + '</div>';
 		infowindow.setContent(content );
 		infowindow.open(map, marker);
 	});
@@ -184,7 +184,7 @@ function initialize_map() {
 		{
 			featureType: 'water',
 			elementType: 'all',
-			stylers: [ 
+			stylers: [
 				{ hue: '#B8CCCA' },
 				{ saturation: -64 },
 				{ gamma: 0.99 },
