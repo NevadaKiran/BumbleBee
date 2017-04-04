@@ -162,13 +162,13 @@ function initialize_map() {
 		infowindow.open(map, marker);
 	});
 
-	var default_style = [{ hue: "#F9F9F9" },{ saturation: -500 },{ gamma: 0.99 }];
+	var default_style = [{ hue: "#ffffcc" },{ saturation: -500 },{ gamma: 0.99 }];
 	var coffee_style = [{ hue: "#F4DFB0" },{ saturation: 0 },{ gamma: 0.0 }];
 	var barber_style = [{ hue: '#000000' }, { saturation: -100 }, { lightness: -100 }, { visibility: 'on' }];
 
 	var styles =  [{
 		stylers: [
-		{ hue: "#F9F9F9" },
+		{ hue: "#ffffcc" },
 		{ saturation: -500 },
         { gamma: 0.99 }
 		]
@@ -226,7 +226,7 @@ function initialize_map() {
           featureType: "landscape",
           elementType: "all",
           stylers: [
-            { hue: "#F9F9F9" },
+            { hue: "#ffffcc" },
             { lightness: 100 },
             { gamma: 0.01 }
           ]
